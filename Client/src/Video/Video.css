@@ -84,7 +84,7 @@ body {
 .back-link {
   position: fixed;       /* Keeps the button fixed on the screen */
   top: 20px;             /* Distance from the top */
-  right: 20px;           /* Distance from the right */
+  left: 20px;           /* Distance from the right */
   padding: 10px 20px;
   background: linear-gradient(135deg, #98e6db, #449494);
   color: #000;
@@ -105,9 +105,9 @@ body {
 }
 
 .back-button {
-  position: fixed;       /* Keeps the button fixed on the screen */
-  top: 20px;             /* Distance from the top */
-  left: 20px;            /* Position at the left corner */
+  position: fixed;       
+  top: 20px;             
+  right: 20px;            
   padding: 10px 20px;
   background: linear-gradient(135deg, #98e6db, #449494);
   color: #000;
@@ -118,7 +118,8 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  z-index: 1000;         /* Ensures it appears above other elements */
+  z-index: 1000;         
+  text-decoration: none;
 }
 
 .back-button:hover {
