@@ -83,6 +83,13 @@ const handleSubmit = async (e) => {
     );
 
     setSuccess("Policy Added!");
+
+     // ✅ ADD REDIRECT HERE
+    setTimeout(() => {
+      window.location.hash = "/page/itpolicypage";
+    }, 1000);
+
+    
   } catch (err) {
     console.log(err); // 👈 see real error
     setError(err.response?.data?.message || "Failed to add policy");
