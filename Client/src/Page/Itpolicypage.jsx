@@ -47,7 +47,7 @@ const fetchPolicies = async () => {
     setLoading(true);
 
     const res = await axios.get(
-      "http://127.0.0.1:5000/api/policies/category/IT"
+      "https://utkal-tree-backend.onrender.com/api/policies/category/IT"
     );
 
     setPolicies(res.data);
