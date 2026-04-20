@@ -35,7 +35,7 @@ const It = () => {
       </button>
 
       {/* Back to Policy */}
-      <a href="#/policy" className="back-link">
+      <a href="#/policy" className="back1-link">
         Back to Policy
       </a>
     </div>

@@ -111,3 +111,26 @@
 .it-container .back-link:active {
   transform: translateY(0);
 }
+
+.back1-link {
+  position: fixed;       /* Keeps the button fixed on the screen */
+  top: 20px;             /* Distance from the top */
+  left: 20px;           /* Distance from the right */
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #98e6db, #449494);
+  color: #000;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;         /* Ensures it appears above other elements */
+}
+
+.back1-link:hover {
+  background: linear-gradient(135deg, #5af3da, #3ff0e7);
+  transform: translateY(-2px);
+}
