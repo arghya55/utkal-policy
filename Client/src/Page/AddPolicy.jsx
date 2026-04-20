@@ -70,19 +70,24 @@ const AddPolicy = () => {
 
 const handleSubmit = async (e) => {
   e.preventDefault();
+  setLoading(true);
+  setError("");
 
   try {
-
-    await axios.post("https://utkal-tree-backend.onrender.com/api/policies", formData);
+    await axios.post(
+      "https://utkal-tree-backend.onrender.com/api/policies",
+      {
+        ...formData,
+        category: "IT"   // 🔥 force category
+      }
+    );
 
     setSuccess("Policy Added!");
-
-    setTimeout(() => {
-      window.location.hash = "/page/itpolicypage";
-    }, 1000);
-
   } catch (err) {
-    setError("Failed to add policy");
+    console.log(err); // 👈 see real error
+    setError(err.response?.data?.message || "Failed to add policy");
+  } finally {
+    setLoading(false);
   }
 };
 

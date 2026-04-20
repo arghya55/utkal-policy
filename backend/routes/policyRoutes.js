@@ -6,14 +6,17 @@ const Policy = require("../models/Policy");
 // ✅ CREATE
 router.post("/", async (req, res) => {
   try {
+    console.log("BODY:", req.body); // 👈 debug
+
     const policy = new Policy(req.body);
     await policy.save();
+
     res.status(201).json(policy);
   } catch (err) {
+    console.log("ERROR:", err); // 👈 important
     res.status(500).json({ message: err.message });
   }
 });
-
 
 // ✅ GET ALL
 router.get("/", async (req, res) => {
