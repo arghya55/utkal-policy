@@ -72,7 +72,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-    await axios.post("https://utkal-tree-backend.onrender.com/api/policies", formData);
+    await axios.post("http://127.0.0.1:5000/api/policies", formData);
 
     setSuccess("Policy Added!");
 
