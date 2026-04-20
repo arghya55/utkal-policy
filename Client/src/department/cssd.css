@@ -1,0 +1,32 @@
+.cssd-container {
+  background-color: #e8f5e8;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  min-height: 50vh;
+}
+
+.cssd-header {
+  color: #2e7d32;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.cssd-text {
+  font-size: 18px;
+  color: #424242;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 20px;
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

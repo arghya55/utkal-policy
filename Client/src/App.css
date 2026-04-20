@@ -1,0 +1,397 @@
+.home-container {
+  background-color: #c8e6c9;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 14vh;
+}
+
+/* Container to center the content */
+.home-container {
+  height: 14vh;
+  background-color: #a8c3a2; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* "Welcome" text */
+.home-header {
+  color: #2c3e50;
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* "to" text */
+.to-text {
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* "UTKAL TREE" text */
+.home-header1 {
+  color: #194e05;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;   /* center everything */
+  align-items: center;
+  gap: 40px;                 /* space between left + right */
+}
+
+.side-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.policy-center {
+  background-color: #BBD5AA;
+  color: black;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: 800;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.policy-center:hover {
+  background-color: #AFC7A1;
+}
+
+
+.hmis-btn {
+  background-color: #BBD5AA;
+  color: black;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: 800;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.hmis-btn:hover {
+  background-color: #AFC7A1;
+}
+
+.qms-btn {
+  background-color: #E3D1C1;
+  color: black;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+.qms-btn:hover {
+  background-color: #e4cba0;
+}
+
+.website-btn {
+  background-color: #E3D1C1;
+  color: black;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.website-btn:hover {
+  background-color: #e4cba0;
+}
+
+.pacs-btn {
+  background-color: #BBD5AA;
+  color: black;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.pacs-btn:hover {
+  background-color: #AFC7A1;
+}
+
+/* .button-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+.button-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 ta button per row */
+  gap: 20px; /* gap between buttons */
+  justify-items: center;
+  align-items: center;
+
+}
+
+.department-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+
+}
+
+.it-btn {
+  background-color: #BBD5AA;
+  color: black;
+  text-decoration: none;
+  font-size: 27px;
+  font-weight: 800;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+   border: none;
+   cursor: pointer;
+}
+
+.it-btn:hover {
+  background-color: #AFC7A1;
+}
+
+.cssd-btn {
+  background-color: #E3D1C1;
+  color: black;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  border: none;
+  cursor: pointer;
+
+}
+
+.cssd-btn:hover {
+  background-color: #e4cba0;
+}
+.hr-btn {
+  background-color: #BBD5AA;
+  color: black;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  border: none;
+  cursor: pointer;
+}
+.hr-btn:hover {
+  background-color: #AFC7A1;
+}
+.finance-btn {
+  background-color: #E3D1C1;
+  color: black;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  border: none;
+  cursor: pointer;
+}
+.finance-btn:hover {
+  background-color: #e4cba0;
+}
+
+.pharmacy-btn {
+  background-color: #E3D1C1;
+  color: black;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.pharmacy-btn:hover {
+  background-color: #e4cba0;
+}
+
+.radiology-btn {
+  background-color: #BBD5AA;
+  color: black;
+  text-decoration: none;
+  font-size: 28px ;
+  font-weight: bold;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.radiology-btn:hover {
+  background-color: #AFC7A1;
+}
+
+.laboratory-btn {
+  background-color: #E3D1C1;
+  color: black;
+  text-decoration: none;
+  font-size: 28px ;
+  font-weight: bold;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+    border: none;
+      cursor: pointer;
+}
+.laboratory-btn:hover {
+  background-color: #e4cba0;
+}
+.maintenance-btn {
+  background-color: #BBD5AA;
+  color: black;
+  text-decoration: none;
+  font-size: 28px ;
+  font-weight: bold;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+    border: none;
+      cursor: pointer;
+}
+.maintenance-btn:hover {
+  background-color: #AFC7A1;
+}
+
+.nursing-btn {
+  background-color: #BBD5AA;
+  color: black;
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  height: 70px;
+  width: 380px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+    border: none;
+      cursor: pointer;
+}
+.nursing-btn:hover {
+  background-color: #AFC7A1;
+}
+
+.policy-container {
+  background-color: #e8f5e8;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  min-height: 50vh;
+}
+
+.policy-container h1 {
+  color: #333;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.back-btn {
+  background-color: #37c02b;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  height: 50px;
+  width: 150px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+
+  /* Positioning */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensures it stays above other elements */
+}
