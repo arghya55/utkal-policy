@@ -42,12 +42,12 @@ const CreateDepartment = () => {
     if (editDept) {
       // UPDATE
       await axios.put(
-        `http://localhost:5000/api/departments/${editDept._id}`,
+        `https://utkal-policy-backend.onrender.com/${editDept._id}`,
         form
       );
     } else {
       // CREATE
-      await axios.post("http://localhost:5000/api/departments", form);
+      await axios.post("https://utkal-policy-backend.onrender.com", form);
     }
 
     // RESET
@@ -58,7 +58,7 @@ const CreateDepartment = () => {
 
   // ================= DELETE =================
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/departments/${id}`);
+    await axios.delete(`https://utkal-policy-backend.onrender.com/${id}`);
     fetchDepartments();
   };
 
