@@ -1,0 +1,167 @@
+/* MAIN CONTAINER */
+.user-container {
+  padding: 40px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #abecdc, #93b3e7);
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.header h2 {
+  color: #031b25;
+}
+
+/* BACK BUTTON */
+.back-home {
+  background: #334155;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-home:hover {
+  background: #475569;
+}
+
+/* FORM CARD */
+.form-card {
+  background: #6a7c99;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+/* INPUT */
+.grid input,
+.grid select {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+/* BUTTON */
+.primary-btn {
+  grid-column: span 2;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #46554c, #16a34a);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  transform: scale(1.03);
+}
+
+/* TABLE */
+.table-card {
+  background: #545f72;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  color: #38bdf8;
+}
+
+tr {
+  border-bottom: 1px solid #6298e4;
+}
+
+/* ACTION BUTTONS CONTAINER */
+td button {
+  margin-right: 6px;
+}
+
+/* EDIT BUTTON */
+.edit-btn {
+  background: rgb(68, 175, 7);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.edit-btn:hover {
+  background: #0ea5e9;
+  color: white;
+}
+
+/* DELETE BUTTON */
+.delete-btn {
+  background: rgba(255, 0, 0, 0.15);
+  color: #ef4444;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* PASSWORD BUTTON */
+.password-btn {
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.password-btn:hover {
+  background: #a855f7;
+  color: white;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-btn {
+    grid-column: span 1;
+  }
+}

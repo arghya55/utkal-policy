@@ -1,180 +1,141 @@
-import React, { useState } from 'react';
-import axios from "axios";
-import './AddPolicy.css';
+import React, { useState, useEffect } from "react";
+import "./AddPolicy.css";
+import { api } from "../api";
 
 const AddPolicy = () => {
+
+  // ✅ FIXED USER STATE
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(sessionStorage.getItem("user"));
+    setUser(storedUser);
+  }, []);
+
+  // ================= STATE =================
   const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    date: '',
-    category: 'IT'
+    title: "",
+    description: "",
+    date: "",
+    category: "IT",
+    department: "",
   });
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  // ✅ FIXED (NO LOOP)
+  useEffect(() => {
+    if (user && !formData.department) {
+      setFormData((prev) => ({
+        ...prev,
+        department: user.department,
+      }));
+    }
+  }, [user]);
+
+  // ================= SUBMIT =================
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setSuccess("");
+
+      const res = await api.post("/policies", {
+        ...formData,
+        department: user?.department,
+      });
+
+      setSuccess("✅ Policy Added Successfully!");
+
+      // reset form
+      setFormData({
+        title: "",
+        description: "",
+        date: "",
+        category: "IT",
+        department: user?.department || "",
+      });
+
+      // 🔥 notify department page
+      window.dispatchEvent(new Event("policy-added"));
+
+      setTimeout(() => {
+        window.location.hash = `#/department/${user?.department}`;
+      }, 1200);
+
+    } catch (err) {
+      console.log(err);
+      setError(err.response?.data?.message || "❌ Failed to add policy");
+    }
   };
 
-//   const handleSubmit = (e) => {
-//   e.preventDefault();
+  // ================= BACK =================
+  const handleBack = () => {
+    window.location.hash = `#/department/${user?.department}`;
+  };
 
-//   setError('');
-//   setSuccess('');
-
-//   try {
-//     // get old policies
-//     const existingPolicies =
-//       JSON.parse(localStorage.getItem("policies")) || [];
-
-//     // new policy
-//     const newPolicy = {
-//       id: Date.now(),
-//       title: formData.title,
-//       description: formData.description,
-//       date: formData.date,
-//       category: formData.category,
-//     };
-
-//     // add new policy
-//     const updatedPolicies = [...existingPolicies, newPolicy];
-
-//     // save to localStorage
-//     localStorage.setItem("policies", JSON.stringify(updatedPolicies));
-
-//     setSuccess("✅ Policy added successfully!");
-
-//     // clear form
-//     setFormData({
-//       title: "",
-//       description: "",
-//       date: "",
-//       category: "IT",
-//     });
-
-//     // redirect
-//     setTimeout(() => {
-//       window.location.hash = "/page/itpolicypage";
-//     }, 1000);
-
-//   } catch (err) {
-//     setError("❌ Failed to save policy");
-//   }
-// };
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  setError("");
-
-  try {
-    await axios.post(
-      "https://utkal-tree-backend.onrender.com/api/policies",
-      {
-        ...formData,
-        category: "IT"   // 🔥 force category
-      }
-    );
-
-    setSuccess("Policy Added!");
-
-     // ✅ ADD REDIRECT HERE
-    setTimeout(() => {
-      window.location.hash = "/page/itpolicypage";
-    }, 1000);
-
-    
-  } catch (err) {
-    console.log(err); // 👈 see real error
-    setError(err.response?.data?.message || "Failed to add policy");
-  } finally {
-    setLoading(false);
-  }
-};
-
-
-const handleBack = () => {
-  window.location.hash = "/page/itpolicypage";
-}
-
+  // ================= UI =================
   return (
     <div className="add-policy-container">
+
+      <button className="back-btn" onClick={handleBack}>
+        ← Back
+      </button>
+
       <div className="add-policy-header">
-        <button className="back-btn" onClick={handleBack}>
-          ← Back to IT Policies
-        </button>
         <h1>Add New Policy</h1>
       </div>
 
+      {error && <div className="error-message">{error}</div>}
+      {success && <div className="success-message">{success}</div>}
+
       <div className="add-policy-form-container">
+
         <form onSubmit={handleSubmit} className="add-policy-form">
 
-          {error && <div className="error-message">{error}</div>}
-          {success && <div className="success-message">{success}</div>}
-
           <div className="form-group">
-            <label>Policy Title *</label>
+            <label>Policy Title</label>
             <input
               type="text"
-              name="title"
               value={formData.title}
-              onChange={handleChange}
+              onChange={(e) =>
+                setFormData({ ...formData, title: e.target.value })
+              }
               required
-              placeholder="Enter policy title"
             />
           </div>
 
           <div className="form-group">
-            <label>Category</label>
-            <select
-              name="category"
-              value={formData.category}
-              onChange={handleChange}
-              required
-            >
-              <option value="IT">IT</option>
-            </select>
-          </div>
-
-          <div className="form-group">
-            <label>Effective Date</label>
-            <input
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Description *</label>
+            <label>Description</label>
             <textarea
-              name="description"
               value={formData.description}
-              onChange={handleChange}
+              onChange={(e) =>
+                setFormData({ ...formData, description: e.target.value })
+              }
               required
-              rows="6"
-              placeholder="Enter policy description"
             />
           </div>
 
           <div className="form-actions">
-            <button type="button" className="cancel-btn" onClick={handleBack}>
+
+            <button
+              type="button"
+              className="cancel-btn"
+              onClick={handleBack}
+            >
               Cancel
             </button>
 
-            <button type="submit" className="submit-btn" disabled={loading}>
-              {loading ? 'Adding Policy...' : 'Add Policy'}
+            <button type="submit" className="submit-btn">
+              ➕ Add Policy
             </button>
+
           </div>
 
         </form>
+
       </div>
     </div>
   );

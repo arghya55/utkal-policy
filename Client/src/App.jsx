@@ -1,103 +1,69 @@
-import React, { useEffect, useState } from 'react'
-import './App.css'
-import Home from './Component/Home'
-import Policy from './Policy/Policy'
-import It from './department/it'
-import Cssd from './department/cssd'
-import Hr from './department/hr'
-import Finance from './department/finance'
-import Nursing from './department/nursing'
-import Pharmacy from './department/pharmacy'
-import Radiology from './department/radiology'
-import Laboratory from './department/laboratory'
-import Maintenance from './department/maintenance'
-import ItPolicyPage from './Page/Itpolicypage'
-import ItSopPage from './Page/itsoppage'
-import AddPolicy from './Page/AddPolicy'
-import Video from './Video/Video'
+import React, { useEffect, useState } from "react";
+
+import Home from "./Component/Home";
+import UserLogin from "./Component/UserLogin";
+import Policy from "./Policy/Policy";
+import DepartmentPage from "./Page/DepartmentPage";
+import AddPolicy from "./Page/AddPolicy";
+import Video from "./Video/Video";
 
 function App() {
-  const [page, setPage] = useState('home')
+  const [page, setPage] = useState("home");
+  const [deptId, setDeptId] = useState(null);
 
   useEffect(() => {
     const updateRoute = () => {
-      let route = window.location.hash
+      const hash = window.location.hash.replace("#", "").toLowerCase();
 
-      // Remove '#' and normalize the route
-      route = route.replace('#', '').toLowerCase().replace(/\/$/, '') || '/'
-
-      switch (route) {
-        case '/policy':
-          setPage('policy')
-          break
-        case '/department/it':
-          setPage('it')
-          break
-        case '/department/cssd':
-          setPage('cssd')
-          break
-        case '/department/hr':
-          setPage('hr')
-          break
-        case '/department/finance':
-          setPage('finance')
-          break
-        case '/department/nursing':
-          setPage('nursing')
-          break
-        case '/department/pharmacy':
-          setPage('pharmacy')
-          break
-        case '/department/radiology':
-          setPage('radiology')
-          break
-        case '/department/laboratory':
-          setPage('laboratory')
-          break
-        case '/department/maintenance':
-          setPage('maintenance')
-          break
-        case '/page/itsoppage':
-          setPage('itsoppage')
-          break
-        case '/page/itpolicypage':
-          setPage('itpolicypage')
-          break
-        case '/page/addpolicy':
-          setPage('addpolicy')
-          break
-        case '/video':
-          setPage('video')
-          break
-        default:
-          setPage('home')
+      if (hash === "" || hash === "/" || hash === "/home") {
+        setPage("home");
+        return;
       }
-    }
 
-    updateRoute()
-    window.addEventListener('hashchange', updateRoute)
-    return () => window.removeEventListener('hashchange', updateRoute)
-  }, [])
+      if (hash === "/login") {
+        setPage("login");
+        return;
+      }
+
+      if (hash === "/policy") {
+        setPage("policy");
+        return;
+      }
+
+      if (hash === "/page/addpolicy") {
+        setPage("addpolicy");
+        return;
+      }
+
+      if (hash === "/video") {
+        setPage("video");
+        return;
+      }
+
+      if (hash.startsWith("/department/")) {
+        const id = hash.split("/department/")[1];
+        setDeptId(id);
+        setPage("department");
+        return;
+      }
+    };
+
+    updateRoute();
+    window.addEventListener("hashchange", updateRoute);
+
+    return () => window.removeEventListener("hashchange", updateRoute);
+  }, []);
 
   return (
     <>
-      {page === 'home' && <Home />}
-      {page === 'policy' && <Policy />}
-      {page === 'it' && <It />}
-      {page === 'cssd' && <Cssd />}
-      {page === 'hr' && <Hr />}
-      {page === 'finance' && <Finance />}
-      {page === 'nursing' && <Nursing />}
-      {page === 'pharmacy' && <Pharmacy />}
-      {page === 'radiology' && <Radiology />}
-      {page === 'laboratory' && <Laboratory />}
-      {page === 'maintenance' && <Maintenance />}
-      {page === 'itsoppage' && <ItSopPage />}
-      {page === 'itpolicypage' && <ItPolicyPage />}
-      {page === 'addpolicy' && <AddPolicy />}
-      {page === 'video' && <Video />}
+      {page === "home" && <Home />}
+      {page === "login" && <UserLogin />}
+      {page === "policy" && <Policy />}
+      {page === "department" && <DepartmentPage deptId={deptId} />}
+      {page === "addpolicy" && <AddPolicy />}
+      {page === "video" && <Video />}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
