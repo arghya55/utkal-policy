@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Policy = require("../models/Policy");
 const User = require("../models/User");
-const auth = require("../middleware/auth");
+const auth = require("../Middleware/auth");
 
 // CREATE POLICY
 router.post("/", auth, async (req, res) => {
